@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,15 +15,33 @@
     <link rel="stylesheet" href="./styles/standard.css">
 
 </head>
+
 <body>
     <header>
-        <h1>Pokedex</h1>
-        <input type="text">
-        <img src="./assets/favicon/favicon pikachu.png" alt="" srcset="">
+        <div class="header-sidebyside">
+            <div class="header-sorting">
+                <img class="img-style" src="./assets//img/pokeballsmall.png" alt="" srcset="">
+                <h1>Pokedex</h1>
+            </div>
+            <div>
+                <input type="text">
+            </div>
+        </div>
     </header>
-    
+
+    <main>
+        <div class="background-style">
+            <div id="pokemon-content">Hier werden Pokemon angezeigt</div>
+        </div>
+    </main>
+
+    <footer>
+
+    </footer>
+
 </body>
 
 <script src="./script/template.js"></script>
 <script src="./script/db.js"></script>
+
 </html>

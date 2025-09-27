@@ -16,7 +16,7 @@
 
 </head>
 
-<body>
+<body onload="fetchDataJson()">
     <header>
         <div class="header-sidebyside">
             <div class="header-sorting">
@@ -24,14 +24,14 @@
                 <h1>Pokedex</h1>
             </div>
             <div>
-                <input type="text">
+                <input type="text" placeholder="Pokemon Name">
             </div>
         </div>
     </header>
 
     <main>
         <div class="background-style">
-            <div id="pokemon-content">Hier werden Pokemon angezeigt</div>
+            <div class="max-width" id="pokemon-content"></div>
         </div>
     </main>
 

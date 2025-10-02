@@ -21,7 +21,7 @@ async function renderPokemon(pokemons) {
                     <strong>Name: ${pokemon.name}</strong>
                 </div>
                 <div>
-                <img src="${imageDetail.sprites.front_default}">
+                <img class="style-mouseover" src="${imageDetail.sprites.front_default}">
                 </div>
             </div>    
                 `;

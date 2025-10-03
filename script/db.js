@@ -18,7 +18,7 @@ async function renderPokemon(pokemons) {
         pokemonContainer.innerHTML += `
             <div>
                 <div>
-                    <strong>Name: ${pokemon.name}</strong>
+                    <strong>Name: ${captitalizeFirstLetter(pokemon.name)}</strong>
                 </div>
                 <div>
                 <img class="style-mouseover" src="${imageDetail.sprites.front_default}">

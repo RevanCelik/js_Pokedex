@@ -12,16 +12,20 @@ async function renderPokemon(pokemons) {
 
     for (let i = 0; i < pokemons.length; i++) {
         let pokemon = pokemons[i];
-        let imageResponse = await fetch(pokemon.url);
-        let imageDetail = await imageResponse.json();
+        let response = await fetch(pokemon.url);
+        let detailData = await response.json();
 
         pokemonContainer.innerHTML += `
             <div>
                 <div>
                     <strong>Name: ${captitalizeFirstLetter(pokemon.name)}</strong>
                 </div>
+
+                <div>${detailData.types[0].type.name}</div>
+                ${detailData.types[1] ? `<div>${detailData.types[1].type.name}</div>` : ""}
+
                 <div>
-                <img class="style-mouseover" src="${imageDetail.sprites.front_default}">
+                <img class="style-mouseover" src="${detailData.sprites.front_default}">
                 </div>
             </div>    
                 `;

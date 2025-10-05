@@ -1,0 +1,47 @@
+.grass {
+    background-color: green;
+    border-radius: 8px;
+    padding: 8px;
+}
+
+.fire {
+    background-color: red;
+    border-radius: 8px;
+    padding: 8px;
+}
+
+.water {
+    background-color: blue;
+    border-radius: 8px;
+    padding: 8px;
+}
+
+.bug {
+    background-color: rgb(150, 216, 51);
+    border-radius: 8px;
+    padding: 8px;
+}
+
+.normal {
+    background-color: rgb(74, 224, 224);
+    border-radius: 8px;
+    padding: 8px;
+}
+
+.poison {
+    background-color: purple;
+    border-radius: 8px;
+    padding: 8px;
+}
+
+.electric {
+    background-color: rgb(194, 194, 22);
+    border-radius: 8px;
+    padding: 8px;
+}
+
+.ground {
+    background-color: rgb(105, 81, 50);
+    border-radius: 8px;
+    padding: 8px;
+}

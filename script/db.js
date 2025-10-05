@@ -16,9 +16,9 @@ async function renderPokemon(pokemons) {
         let detailData = await response.json();
 
         pokemonContainer.innerHTML += `
-            <div>
+            <div class="${detailData.types[0].type.name}">
                 <div>
-                    <strong>Name: ${captitalizeFirstLetter(pokemon.name)}</strong>
+                    <strong>${captitalizeFirstLetter(pokemon.name)}</strong>
                 </div>
 
                 <div>${detailData.types[0].type.name}</div>

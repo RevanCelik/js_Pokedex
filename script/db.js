@@ -16,7 +16,7 @@ async function renderPokemon(pokemons) {
         let detailData = await response.json();
 
         pokemonContainer.innerHTML += `
-            <div class="${detailData.types[0].type.name}">
+            <div class="${detailData.types[0].type.name} hover-effect">
                 <div>
                     <strong>${captitalizeFirstLetter(pokemon.name)}</strong>
                 </div>
@@ -25,7 +25,7 @@ async function renderPokemon(pokemons) {
                 ${detailData.types[1] ? `<div>${detailData.types[1].type.name}</div>` : ""}
 
                 <div>
-                <img class="style-mouseover" src="${detailData.sprites.front_default}">
+                <img src="${detailData.sprites.front_default}">
                 </div>
             </div>    
                 `;

@@ -18,6 +18,15 @@
 </head>
 
 <body onload="fetchDataJson()">
+    <div onclick="toggleOverlay()" id="overlay" class="overlay d_none">
+        <button id="prevBtn" class="nav-btn left" onclick="navigate(-1, event)">&#10094;</button>
+        <div class="overlay-content">
+            <img id="overlay-pokemon" class="overlay-pokemon" />
+            <div id="overlay-info" class="overlay-info"></div>
+        </div>
+        <button id="nextBtn" class="nav-btn right" onclick="navigate(1, event)">&#10095;</button>
+    </div>
+
     <div class="site">
         <header>
             <div class="header-sidebyside">
@@ -39,7 +48,7 @@
 
             <button>Weitere Pokemon laden</button>
 
-            
+
         </main>
 
         <footer class="footer-style">

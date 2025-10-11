@@ -1,7 +1,7 @@
 let pokemons = [];
 let currentIndex = 0;
 
-function captitalizeFirstLetter(string) {
+function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 

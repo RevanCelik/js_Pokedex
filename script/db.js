@@ -26,7 +26,7 @@ async function renderPokemon(pokemonList) {
     };
 
     pokemonContainer.innerHTML += `
-            <div onclick="toggleOverlay(${i})" class="${detailData.types[0].type.name} hover-effect">
+            <div onclick="toggleOverlay(${i})" class="${detailData.types[0].type.name} hover-effect border-style-pokemon">
                 <div>
                     <strong>${capitalizeFirstLetter(pokemon.name)}</strong>
                 </div>
@@ -66,17 +66,17 @@ function showPokemonInOverlay(index) {
   }
 
   overlayInfo.innerHTML = `
-    <div class="${p.types[0].type.name}">
+    <div class="${p.types[0].type.name} border-style-overlay">
     <h2>${capitalizeFirstLetter(p.name)}</h2>
-    <img src="${p.image}" alt="${p.name}" class="overlay-img">
     <p>Typ: ${p.types.map(t => capitalizeFirstLetter(t.type.name)).join(', ')}</p>
+    <img src="${p.image}" alt="${p.name}" class="overlay-img">
     </div>
-    
+    <div class="overlay-card-style">
     <p>HP: ${hpPokemon}</p>
     <p>Height: ${heightPokemon}</p>
     <p>Abilities: ${abilityPokemon}</p>
     <p>Weight: ${(p.weight / 10).toFixed(1)} kg</p>
-    
+    </div>
   `;
 }
 

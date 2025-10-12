@@ -1,47 +1,40 @@
 .grass {
-    background-color: green;
-    border-radius: 8px;
+    background-color: #78C850;
     padding: 8px;
 }
 
 .fire {
-    background-color: red;
-    border-radius: 8px;
+    background-color: #F08030;
     padding: 8px;
 }
 
 .water {
-    background-color: blue;
-    border-radius: 8px;
+    background-color: #6890F0;
     padding: 8px;
 }
 
 .bug {
-    background-color: rgb(150, 216, 51);
-    border-radius: 8px;
+    background-color: #A8B820;
     padding: 8px;
 }
 
 .normal {
-    background-color: rgb(74, 224, 224);
-    border-radius: 8px;
+    background-color: #A8A878;
     padding: 8px;
 }
 
 .poison {
-    background-color: purple;
-    border-radius: 8px;
+    background-color: #A040A0;
     padding: 8px;
 }
 
 .electric {
-    background-color: rgb(194, 194, 22);
-    border-radius: 8px;
+    background-color: #F8D030;
     padding: 8px;
 }
 
 .ground {
-    background-color: rgb(105, 81, 50);
-    border-radius: 8px;
+    background-color: #E0C068;
     padding: 8px;
 }
+

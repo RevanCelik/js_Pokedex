@@ -7,3 +7,21 @@
 .d_none {
   display: none;
 }
+
+.border-style-pokemon {
+    border-style: outset;
+    border-radius: 8px;
+    height: 160px;
+}
+
+.border-style-overlay {
+  border-radius: 8px;
+}
+
+.overlay-card-style {
+  background-color: #f5f5f5;
+  color: #2a2a2a;
+  padding: 24px 8px 24px 8px;
+  height: 160px;
+  border-radius: 8px;
+}

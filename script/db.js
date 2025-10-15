@@ -34,7 +34,7 @@ async function renderPokemon(pokemonList) {
                 <div class="type-style">${detailData.types[0].type.name}</div>
                 ${detailData.types[1] ? `<div class="type-style">${detailData.types[1].type.name}</div>` : ""}
 
-                <div>
+                <div class="image-center">
                 <img src="${detailData.sprites.front_default}">
                 </div>
             </div>    
@@ -66,10 +66,11 @@ function showPokemonInOverlay(index) {
   }
 
   overlayInfo.innerHTML = `
+  <div class="overlay-background">
     <div class="${p.types[0].type.name} border-style-overlay">
     <h2>${capitalizeFirstLetter(p.name)}</h2>
-    <p class="type-style">${p.types.map(t => capitalizeFirstLetter(t.type.name)).join(', ')}</p>
     <img src="${p.image}" alt="${p.name}" class="overlay-img">
+    <div class="type-container">${p.types.map(t => `<div class="type-style">${capitalizeFirstLetter(t.type.name)}</div>`).join('')}</div>
     </div>
     <div class="overlay-card-style">
     <p>HP: ${hpPokemon}</p>
@@ -77,6 +78,7 @@ function showPokemonInOverlay(index) {
     <p>Abilities: ${abilityPokemon}</p>
     <p>Weight: ${(p.weight / 10).toFixed(1)} kg</p>
     </div>
+  </div>
   `;
 }
 

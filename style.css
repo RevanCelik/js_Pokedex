@@ -92,6 +92,12 @@ body {
   line-height: 1.5;
 }
 
+.overlay-background {
+  background-color: #9e9e9e;
+  padding: 4px;
+  border-radius: 8px;
+}
+
 .nav-btn {
   position: absolute;
   top: 50%;

@@ -33,3 +33,13 @@
   padding: 4px;
   margin: 4px;
 }
+
+.type-container {
+  display: flex;
+  gap: 6px;
+}
+
+.image-center {
+  display: flex;
+  justify-content: center;
+}

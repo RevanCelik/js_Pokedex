@@ -11,7 +11,6 @@
 .border-style-pokemon {
     border-style: outset;
     border-radius: 8px;
-    /* height: 160px; */
 }
 
 .border-style-overlay {
@@ -42,4 +41,11 @@
 .image-center {
   display: flex;
   justify-content: center;
+}
+
+.loading-pokemon-content {
+  display: flex;
+  justify-content: center;
+  background-color: #d2e8fb;
+  padding: 8px;
 }

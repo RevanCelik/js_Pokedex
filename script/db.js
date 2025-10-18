@@ -11,31 +11,34 @@ async function renderPokemon(pokemonList) {
   pokemonContainer.innerHTML = "";
 
   for (let i = 0; i < pokemonList.length; i++) {
-    let pokemon = pokemonList[i];
-    let response = await fetch(pokemon.url);
-    let detailData = await response.json();
+    const {name, url} = pokemonList[i];
+    const response = await fetch(url);
+    const detail = await response.json();
 
     pokemons[i] = {
-      name: pokemon.name,
-      image: detailData.sprites.front_default,
-      types: detailData.types,
-      stats: detailData.stats,
-      weight: detailData.weight,
-      height: detailData.height,
-      abilities: detailData.abilities
+      name,
+      image: detail.sprites.front_default,
+      types: detail.types,
+      stats: detail.stats,
+      weight: detail.weight,
+      height: detail.height,
+      abilities: detail.abilities
     };
 
+    const primaryType = detail.types[0]?.type.name;
+    const secondaryType = detail.types[1]?.type.name;
+
     pokemonContainer.innerHTML += `
-            <div onclick="toggleOverlay(${i})" class="${detailData.types[0].type.name} hover-effect border-style-pokemon">
+            <div onclick="toggleOverlay(${i})" class="${primaryType} hover-effect border-style-pokemon">
                 <div>
-                    <strong>${capitalizeFirstLetter(pokemon.name)}</strong>
+                    <strong>${capitalizeFirstLetter(name)}</strong>
                 </div>
 
-                <div class="type-style">${detailData.types[0].type.name}</div>
-                ${detailData.types[1] ? `<div class="type-style">${detailData.types[1].type.name}</div>` : ""}
+                <div class="type-style">${capitalizeFirstLetter(primaryType)}</div>
+                ${secondaryType ? `<div class="type-style">${capitalizeFirstLetter(secondaryType)}</div>` : ""}
 
                 <div class="image-center">
-                <img src="${detailData.sprites.front_default}">
+                <img src="${detail.sprites.front_default}">
                 </div>
             </div>    
                 `;
@@ -73,10 +76,18 @@ function showPokemonInOverlay(index) {
     <div class="type-container">${p.types.map(t => `<div class="type-style">${capitalizeFirstLetter(t.type.name)}</div>`).join('')}</div>
     </div>
     <div class="overlay-card-style">
-    <p>HP: ${hpPokemon}</p>
-    <p>Height: ${heightPokemon}</p>
-    <p>Abilities: ${abilityPokemon}</p>
-    <p>Weight: ${(p.weight / 10).toFixed(1)} kg</p>
+      <div class="overlay-pokemon-left">
+        <p>HP:</p>
+        <p>Height:</p>
+        <p>Abilities:</p>
+        <p>Weight:</p>
+      </div>
+      <div class="overlay-pokemon-right">
+        <p>${hpPokemon}</p>
+        <p>${heightPokemon}</p>
+        <p>${abilityPokemon}</p>
+        <p>${(p.weight / 10).toFixed(1)} kg</p>
+      </div>
     </div>
   </div>
   `;

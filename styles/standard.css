@@ -1,7 +1,7 @@
 .max-width {
-    max-width: 1440px;
-    margin: 0 auto;
-    padding: 0 20px;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .d_none {
@@ -9,8 +9,8 @@
 }
 
 .border-style-pokemon {
-    border-style: outset;
-    border-radius: 8px;
+  border-style: outset;
+  border-radius: 8px;
 }
 
 .border-style-overlay {
@@ -22,11 +22,14 @@
   color: #2a2a2a;
   padding: 24px 8px 24px 8px;
   height: 160px;
+  width: 360px;
   border-radius: 8px;
+  display: flex;
+  flex-direction: row;
 }
 
 .type-style {
-  background-color: rgba(255,255,255,0.3);
+  background-color: rgba(255, 255, 255, 0.3);
   display: inline-block;
   border-radius: 8px;
   padding: 4px;
@@ -48,4 +51,16 @@
   justify-content: center;
   background-color: #d2e8fb;
   padding: 8px;
+}
+
+.overlay-pokemon-left {
+  text-align: left;
+  padding-left: 8px;
+  font-size: 14px;
+}
+
+.overlay-pokemon-right {
+  text-align: left;
+  padding-left: 16px;
+  font-size: 14px;
 }

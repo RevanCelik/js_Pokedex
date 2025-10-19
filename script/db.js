@@ -6,6 +6,14 @@ async function fetchDataJson() {
   renderPokemon(pokemons);
 }
 
+async function fetchMorePokemon() {
+  let response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=60&offset=0');
+  let responseAsJson = await response.json();
+  let pokemons = responseAsJson.results;
+
+  renderPokemon(pokemons);
+}
+
 async function renderPokemon(pokemonList) {
   let pokemonContainer = document.getElementById("pokemon-content");
   pokemonContainer.innerHTML = "";
@@ -79,14 +87,14 @@ function showPokemonInOverlay(index) {
       <div class="overlay-pokemon-left">
         <p>HP:</p>
         <p>Height:</p>
-        <p>Abilities:</p>
         <p>Weight:</p>
+        <p>Abilities:</p>
       </div>
       <div class="overlay-pokemon-right">
         <p>${hpPokemon}</p>
         <p>${heightPokemon}</p>
-        <p>${abilityPokemon}</p>
         <p>${(p.weight / 10).toFixed(1)} kg</p>
+        <p>${abilityPokemon}</p>
       </div>
     </div>
   </div>

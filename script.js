@@ -1,4 +1,3 @@
-let pokemons = [];
 let currentIndex = 0;
 
 function capitalizeFirstLetter(string) {
@@ -21,4 +20,22 @@ function navigate(direction, event) {
   }
 
   showPokemonInOverlay(currentIndex);
+}
+
+function filterPokemonNames() {
+  const pokemonValue = document.getElementById("pokemonName").value.toLowerCase();
+  const warning = document.getElementById("search-warning");
+
+  if (pokemonValue.length < 3) {
+    pokemonList = pokemons;
+
+    warning.style.display = "block";
+  } else {
+
+  pokemonList = pokemons.filter(p => p.name.toLowerCase().includes(pokemonValue));
+
+  warning.style.display = "none";
+  }
+
+  renderPokemon(pokemonList);
 }

@@ -82,7 +82,7 @@ async function showPokemonInOverlay(index) {
       <div class="overlay-pokemon-right">
         <p>${hpPokemon}</p>
         <p>${heightPokemon}</p>
-        <p>${weightPokemon} kg</p>
+        <p>${weightPokemon}</p>
         <p>${abilityPokemon}</p>
       </div>
     </div>

@@ -10,7 +10,6 @@ document.getElementById('overlay-pokemon').addEventListener('click', function(ev
 
 function navigate(direction, event) {
   event.stopPropagation();
-
   currentIndex += direction;
 
   if (currentIndex < 0) {
@@ -18,7 +17,6 @@ function navigate(direction, event) {
   } else if (currentIndex >= pokemons.length) {
     currentIndex = 0;
   }
-
   showPokemonInOverlay(currentIndex);
 }
 
@@ -28,14 +26,10 @@ function filterPokemonNames() {
 
   if (pokemonValue.length < 3) {
     pokemonList = pokemons;
-
     warning.style.display = "block";
   } else {
-
   pokemonList = pokemons.filter(p => p.name.toLowerCase().includes(pokemonValue));
-
   warning.style.display = "none";
   }
-
   renderPokemon(pokemonList);
 }

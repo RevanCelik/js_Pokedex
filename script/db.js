@@ -27,31 +27,16 @@ async function renderPokemon(pokemonList) {
     const {name, url} = pokemonList[i];
     const response = await fetch(url);
     const detail = await response.json();
-
     const primaryType = detail.types[0]?.type.name;
     const secondaryType = detail.types[1]?.type.name;
 
-    pokemonContainer.innerHTML += `
-            <div onclick="toggleOverlay(${i})" class="${primaryType} hover-effect border-style-pokemon">
-                <div>
-                    <strong>${capitalizeFirstLetter(name)}</strong>
-                </div>
-
-                <div class="type-style">${capitalizeFirstLetter(primaryType)}</div>
-                ${secondaryType ? `<div class="type-style">${capitalizeFirstLetter(secondaryType)}</div>` : ""}
-
-                <div class="image-center">
-                <img src="${detail.sprites.front_default}">
-                </div>
-            </div>    
-                `;
+    pokemonContainer.innerHTML += renderPokemonTemplate({i, name, primaryType, secondaryType, detail});
   }
 }
 
 async function showPokemonInOverlay(index) {
   const overlayInfo = document.getElementById('overlay-info');
   const p = pokemons[index];
-
   const response = await fetch(p.url);
   const detail = await response.json();
 
@@ -63,31 +48,7 @@ async function showPokemonInOverlay(index) {
   const primaryType = detail.types[0]?.type.name;
   const secondaryType = detail.types[1]?.type.name;
 
-  overlayInfo.innerHTML = `
-  <div class="overlay-background">
-    <div class="${primaryType} border-style-overlay">
-    <h2>${capitalizeFirstLetter(p.name)}</h2>
-    <img src="${detail.sprites.front_default}" alt="${p.name}" class="overlay-img">
-    <div class="type-container">
-    <div class="type-style">${capitalizeFirstLetter(primaryType)}</div>
-    ${secondaryType ? `<div class="type-style">${capitalizeFirstLetter(secondaryType)}</div>` : ""}
-    </div>
-    <div class="overlay-card-style">
-      <div class="overlay-pokemon-left">
-        <p>HP:</p>
-        <p>Height:</p>
-        <p>Weight:</p>
-        <p>Abilities:</p>
-      </div>
-      <div class="overlay-pokemon-right">
-        <p>${hpPokemon}</p>
-        <p>${heightPokemon}</p>
-        <p>${weightPokemon}</p>
-        <p>${abilityPokemon}</p>
-      </div>
-    </div>
-  </div>
-  `;
+  overlayInfo.innerHTML = pokemonInOverlayTemplate({name: p.name,  detail, hpPokemon, abilityPokemon, heightPokemon, weightPokemon, primaryType, secondaryType});
 }
 
 function toggleOverlay(i) {

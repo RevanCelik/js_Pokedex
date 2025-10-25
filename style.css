@@ -8,6 +8,11 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
+header, footer {
+  position: relative;
+  z-index: 101;
+}
+
 .header-sorting {
     display: flex;
     flex-direction: row;

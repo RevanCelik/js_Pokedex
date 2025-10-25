@@ -20,6 +20,9 @@
 </head>
 
 <body onload="fetchDataJson()">
+
+    <div id="preloader"></div>
+
     <div onclick="toggleOverlay()" id="overlay" class="overlay d_none">
         <button id="prevBtn" class="nav-btn left" onclick="navigate(-1, event)">&#10094;</button>
         <div class="overlay-content">
@@ -39,7 +42,8 @@
                 <div>
                     <input id="pokemonName" type="text" placeholder="Search Pokemon...">
                     <button id="search" onclick="filterPokemonNames()">🔍</button>
-                    <p id="search-warning" style="color:#932323; display:none; font-size: 12px;">Please enter at least 3 letters</p>
+                    <p id="search-warning" style="color:#932323; display:none; font-size: 12px;">Please enter at least 3
+                        letters</p>
                 </div>
             </div>
         </header>
@@ -60,6 +64,24 @@
     </div>
 
 </body>
+
+<script>
+    const loader = document.getElementById("preloader");
+
+    function showLoader() {
+        loader.style.display = "block";
+        loader.classList.remove("hide");
+    }
+
+    function hideLoader() {
+        loader.classList.add("hide");
+        setTimeout(() => loader.style.display = "none", 400);
+    }
+
+    window.addEventListener("load", () => {
+        hideLoader();
+    });
+</script>
 
 <script src="./script/template.js"></script>
 <script src="./script/db.js"></script>

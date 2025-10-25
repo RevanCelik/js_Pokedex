@@ -11,12 +11,13 @@ async function fetchDataJson() {
 }
 
 async function fetchMorePokemon() {
+  showLoader();
   let response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=60&offset=0');
   let responseAsJson = await response.json();
   pokemons = responseAsJson.results;
   pokemonList = pokemons;
-
   renderPokemon(pokemonList);
+  hideLoader();
 }
 
 async function renderPokemon(pokemonList) {

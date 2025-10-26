@@ -49,8 +49,8 @@
 .loading-pokemon-content {
   display: flex;
   justify-content: center;
-  background-color: #d2e8fb;
-  padding: 8px;
+  background-color: #171b1e;
+  padding-bottom: 64px;
 }
 
 .overlay-pokemon-left {

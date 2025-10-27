@@ -63,3 +63,15 @@ function toggleOverlay(i) {
     overlayRef.classList.add('d_none');
   }
 }
+
+function openOverlayByName(name) {
+  const index = pokemons.findIndex(p => p.name === name);
+  const notfound = document.getElementById("not-found");
+  if (index !== -1) {
+    toggleOverlay(index);
+    notfound.style.display = "none";
+  } else {
+    notfound.style.display = "block";
+  }
+  
+}

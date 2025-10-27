@@ -1,6 +1,6 @@
 function renderPokemonTemplate({i, name, primaryType, secondaryType, detail}) {
     return `
-            <div onclick="toggleOverlay(${i})" class="${primaryType} hover-effect border-style-pokemon">
+            <div onclick="openOverlayByName('${name}')" class="${primaryType} hover-effect border-style-pokemon">
                 <div>
                     <strong>${capitalizeFirstLetter(name)}</strong>
                 </div>

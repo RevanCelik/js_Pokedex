@@ -39,7 +39,7 @@
                     <img class="img-style" src="./assets//img/pokeballsmall.png" alt="" srcset="">
                     <h1>Pokedex</h1>
                 </div>
-                <div>
+                <div class="search-style">
                     <input id="pokemonName" type="text" placeholder="Search Pokemon...">
                     <button id="search" onclick="filterPokemonNames()">🔍</button>
                     <p id="search-warning" style="color:#932323; display:none; font-size: 12px;">Please enter at least 3
@@ -54,7 +54,7 @@
                 <div class="max-width" id="pokemon-content"></div>
             </div>
             <div class="loading-pokemon-content">
-                <button onclick="fetchMorePokemon()">Load more Pokemon</button>
+                <button class="button-style" onclick="fetchMorePokemon()">Load more Pokemon</button>
             </div>
 
         </main>

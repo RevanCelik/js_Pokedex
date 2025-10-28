@@ -3,6 +3,7 @@
 }
 
 .mew_style {
-    width: 120px;
+    width: 80px;
     padding: 8px;
+    object-fit: contain;
 }

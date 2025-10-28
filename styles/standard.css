@@ -8,6 +8,10 @@
   display: none;
 }
 
+.search-style {
+  display: flex;
+}
+
 .border-style-pokemon {
   border-style: outset;
   border-radius: 8px;

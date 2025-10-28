@@ -59,8 +59,10 @@ function toggleOverlay(i) {
     currentIndex = i;
     showPokemonInOverlay(currentIndex);
     overlayRef.classList.remove('d_none');
+    document.body.style.overflow = 'hidden';
   } else {
     overlayRef.classList.add('d_none');
+    document.body.style.overflow = '';
   }
 }
 

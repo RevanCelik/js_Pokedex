@@ -79,5 +79,4 @@ function openOverlayByName(name) {
   } else {
     notfound.style.display = "block";
   }
-  
 }

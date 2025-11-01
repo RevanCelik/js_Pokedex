@@ -36,3 +36,29 @@ function filterPokemonNames() {
   }
   renderPokemon(pokemonList);
 }
+
+function toggleOverlay(i) {
+  const overlayRef = document.getElementById('overlay');
+
+  if (i !== undefined) {
+    currentIndex = i;
+    showPokemonInOverlay(currentIndex);
+    overlayRef.classList.remove('d_none');
+    document.body.style.overflow = 'hidden';
+  } else {
+    overlayRef.classList.add('d_none');
+    document.body.style.overflow = '';
+  }
+}
+
+function openOverlayByName(name) {
+  const index = pokemons.findIndex(p => p.name === name);
+  const notfound = document.getElementById("not-found");
+  
+  if (index !== -1) {
+    toggleOverlay(index);
+    notfound.style.display = "none";
+  } else {
+    notfound.style.display = "block";
+  }
+}

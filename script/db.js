@@ -6,7 +6,6 @@ async function fetchDataJson() {
   let responseAsJson = await response.json();
   pokemons = responseAsJson.results;
   pokemonList = pokemons;
-
   renderPokemon(pokemonList);
 }
 
@@ -18,7 +17,6 @@ async function fetchMorePokemon() {
   let responseAsJson = await response.json();
   pokemons = responseAsJson.results;
   pokemonList = pokemons;
-  
   await renderPokemon(pokemonList);
   hideLoader();
   button.disabled = false;
@@ -34,7 +32,6 @@ async function renderPokemon(pokemonList) {
     const detail = await response.json();
     const primaryType = detail.types[0]?.type.name;
     const secondaryType = detail.types[1]?.type.name;
-
     pokemonContainer.innerHTML += renderPokemonTemplate({i, name, primaryType, secondaryType, detail});
   }
 }
@@ -54,29 +51,4 @@ async function showPokemonInOverlay(index) {
   const secondaryType = detail.types[1]?.type.name;
 
   overlayInfo.innerHTML = pokemonInOverlayTemplate({name: p.name,  detail, hpPokemon, abilityPokemon, heightPokemon, weightPokemon, primaryType, secondaryType});
-}
-
-function toggleOverlay(i) {
-  const overlayRef = document.getElementById('overlay');
-
-  if (i !== undefined) {
-    currentIndex = i;
-    showPokemonInOverlay(currentIndex);
-    overlayRef.classList.remove('d_none');
-    document.body.style.overflow = 'hidden';
-  } else {
-    overlayRef.classList.add('d_none');
-    document.body.style.overflow = '';
-  }
-}
-
-function openOverlayByName(name) {
-  const index = pokemons.findIndex(p => p.name === name);
-  const notfound = document.getElementById("not-found");
-  if (index !== -1) {
-    toggleOverlay(index);
-    notfound.style.display = "none";
-  } else {
-    notfound.style.display = "block";
-  }
 }

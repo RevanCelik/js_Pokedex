@@ -38,7 +38,7 @@ footer {
   flex-wrap: wrap;
   justify-content: center;
   gap: 16px;
-  padding: 160px 40px 160px 40px;
+  padding: 160px 20px 160px 20px;
 }
 
 .site {
@@ -121,11 +121,11 @@ footer {
 }
 
 .nav-btn.left {
-  left: 10%;
+  left: 25%;
 }
 
 .nav-btn.right {
-  right: 10%;
+  right: 25%;
 }
 
 .button-style {
@@ -153,8 +153,38 @@ footer {
   border-radius: 4px;
 }
 
+@media (max-width: 1000px) {
+  .nav-btn.left {
+    left: 15%;
+  }
+
+  .nav-btn.right {
+    right: 15%;
+  }
+}
+
+@media (max-width: 555px) {
+  .nav-btn {
+    top: 75%;
+  }
+
+  .nav-btn.left {
+    left: 30%;
+  }
+
+  .nav-btn.right {
+    right: 30%;
+  }
+}
+
 @media (max-width: 500px) {
   h1 {
     display: none;
+  }
+}
+
+@media (max-width: 375px) and (min-width: 375px) {
+  .nav-btn {
+    top: 85%;
   }
 }

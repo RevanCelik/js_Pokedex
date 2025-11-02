@@ -4,9 +4,12 @@ function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-document.getElementById('overlay-pokemon').addEventListener('click', function (event) {
-  event.stopPropagation();
-});
+window.addEventListener('load', () => {
+  const overlay = document.getElementById('overlay-pokemon');
+  if (overlay) {
+    overlay.addEventListener('click', (event) => event.stopPropagation());
+    }
+  });
 
 function navigate(direction, event) {
   event.stopPropagation();
@@ -24,7 +27,7 @@ function filterPokemonNames() {
   const pokemonValue = document.getElementById("pokemonName").value.toLowerCase();
   const warning = document.getElementById("search-warning");
   const notFound = document.getElementById("not-found");
-  
+
   if (pokemonValue.length < 3) {
     pokemonList = pokemons;
     warning.style.display = "block";
@@ -54,7 +57,7 @@ function toggleOverlay(i) {
 function openOverlayByName(name) {
   const index = pokemons.findIndex(p => p.name === name);
   const notfound = document.getElementById("not-found");
-  
+
   if (index !== -1) {
     toggleOverlay(index);
     notfound.style.display = "none";

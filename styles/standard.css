@@ -4,6 +4,10 @@
   padding: 0 20px;
 }
 
+header {
+  background-color: #373737;
+}
+
 .d_none {
   display: none;
 }
@@ -80,4 +84,10 @@
 #preloader.hide {
   opacity: 0;
   pointer-events: none;
+}
+
+@media (max-width: 625px) {
+  .overlay-card-style {
+    width: 250px;
+  }
 }

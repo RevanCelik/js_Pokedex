@@ -1,10 +1,13 @@
 let currentIndex = 0;
+let pokemonList = [];
 
 function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 window.addEventListener('load', () => {
+  pokemonList = pokemons;
+
   const overlay = document.getElementById('overlay-pokemon');
   if (overlay) {
     overlay.addEventListener('click', (event) => event.stopPropagation());
@@ -13,11 +16,14 @@ window.addEventListener('load', () => {
 
 function navigate(direction, event) {
   event.stopPropagation();
+
+  if (!pokemonList || pokemonList.length === 0) return;
+
   currentIndex += direction;
 
   if (currentIndex < 0) {
-    currentIndex = pokemons.length - 1;
-  } else if (currentIndex >= pokemons.length) {
+    currentIndex = pokemonList.length - 1;
+  } else if (currentIndex >= pokemonList.length) {
     currentIndex = 0;
   }
   showPokemonInOverlay(currentIndex);
@@ -55,10 +61,11 @@ function toggleOverlay(i) {
 }
 
 function openOverlayByName(name) {
-  const index = pokemons.findIndex(p => p.name === name);
+  const index = pokemonList.findIndex(p => p.name === name);
   const notfound = document.getElementById("not-found");
 
   if (index !== -1) {
+    currentIndex = index;
     toggleOverlay(index);
     notfound.style.display = "none";
   } else {

@@ -1,5 +1,4 @@
 let pokemons = [];
-let pokemonList = [];
 
 async function fetchDataJson() {
   showLoader();
@@ -40,7 +39,7 @@ async function renderPokemon(pokemonList) {
 
 async function showPokemonInOverlay(index) {
   const overlayInfo = document.getElementById('overlay-info');
-  const p = pokemons[index];
+  const p = pokemonList[index];
   const response = await fetch(p.url);
   const detail = await response.json();
 

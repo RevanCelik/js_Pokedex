@@ -24,12 +24,16 @@
     <div id="preloader"></div>
 
     <div onclick="toggleOverlay()" id="overlay" class="overlay d_none">
-        <button id="prevBtn" class="nav-btn left" onclick="navigate(-1, event)">&#10094;</button>
+        
         <div class="overlay-content">
+            <button id="prevBtn" class="nav-btn left" onclick="navigate(-1, event)">&#10094;</button>
+
             <img id="overlay-pokemon" class="overlay-pokemon" />
             <div id="overlay-info" class="overlay-info"></div>
+
+            <button id="nextBtn" class="nav-btn right" onclick="navigate(1, event)">&#10095;</button>
         </div>
-        <button id="nextBtn" class="nav-btn right" onclick="navigate(1, event)">&#10095;</button>
+        
     </div>
 
     <div class="site">

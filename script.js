@@ -11,8 +11,8 @@ window.addEventListener('load', () => {
   const overlay = document.getElementById('overlay-pokemon');
   if (overlay) {
     overlay.addEventListener('click', (event) => event.stopPropagation());
-    }
-  });
+  }
+});
 
 function navigate(direction, event) {
   event.stopPropagation();
@@ -30,6 +30,7 @@ function navigate(direction, event) {
 }
 
 function filterPokemonNames() {
+  const button = document.getElementById('loadPokemon');
   const pokemonValue = document.getElementById("pokemonName").value.toLowerCase();
   const warning = document.getElementById("search-warning");
   const notFound = document.getElementById("not-found");
@@ -38,10 +39,12 @@ function filterPokemonNames() {
     pokemonList = pokemons;
     warning.style.display = "block";
     notFound.style.display = "none";
+    button.disabled = false;
   } else {
     pokemonList = pokemons.filter(p => p.name.toLowerCase().includes(pokemonValue));
     warning.style.display = "none";
     notFound.style.display = pokemonList.length ? "none" : "block";
+    button.disabled = true;
   }
   renderPokemon(pokemonList);
 }

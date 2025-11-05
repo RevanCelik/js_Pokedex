@@ -79,6 +79,7 @@ footer {
 
 .overlay-content {
   display: flex;
+  justify-content: center;
   align-items: center;
   background: rgba(255, 255, 255, 0.1);
   padding: 8px;
@@ -106,9 +107,8 @@ footer {
 }
 
 .nav-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  position: relative;
+  transform: translateY(-100%);
   background-color: rgba(255, 255, 255, 0.3);
   background: none;
   border: none;
@@ -153,38 +153,14 @@ footer {
   border-radius: 4px;
 }
 
-@media (max-width: 1000px) {
-  .nav-btn.left {
-    left: 15%;
-  }
-
-  .nav-btn.right {
-    right: 15%;
-  }
-}
-
-@media (max-width: 555px) {
-  .nav-btn {
-    top: 77%;
-  }
-
-  .nav-btn.left {
-    left: 30%;
-  }
-
-  .nav-btn.right {
-    right: 30%;
+@media (max-width: 625px) {
+  .overlay-content {
+    max-width: 300px;
   }
 }
 
 @media (max-width: 500px) {
   h1 {
     display: none;
-  }
-}
-
-@media (max-width: 375px) and (min-width: 375px) {
-  .nav-btn {
-    top: 85%;
   }
 }

@@ -1,10 +1,11 @@
 let pokemons = [];
 let offset = 0;
 const limit = 30;
+const apiUrl = 'https://pokeapi.co/api/v2/pokemon';
 
 async function fetchDataJson() {
   showLoader();
-  let response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`);
+  let response = await fetch(`${apiUrl}?limit=${limit}&offset=${offset}`);
   let responseAsJson = await response.json();
   pokemons = responseAsJson.results;
   pokemonList = pokemons;
@@ -17,7 +18,7 @@ async function fetchMorePokemon() {
   button.disabled = true;
   showLoader();
   offset+=limit;
-  let response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`);
+  let response = await fetch(`${apiUrl}?limit=${limit}&offset=${offset}`);
   let responseAsJson = await response.json();
   pokemons = [...pokemons, ...responseAsJson.results];
   pokemonList = pokemons;

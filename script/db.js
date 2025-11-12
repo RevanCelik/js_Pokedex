@@ -2,14 +2,16 @@ let pokemons = [];
 let offset = 0;
 const limit = 30;
 const apiUrl = 'https://pokeapi.co/api/v2/pokemon';
+const imageCache = {};
 
 async function fetchDataJson() {
   showLoader();
   let response = await fetch(`${apiUrl}?limit=${limit}&offset=${offset}`);
   let responseAsJson = await response.json();
-  pokemons = responseAsJson.results;
+  const newPokemons = responseAsJson.results;
+  pokemons = [...pokemons, ...newPokemons];
   pokemonList = pokemons;
-  await renderPokemon(pokemonList);
+  await renderPokemon(newPokemons);
   hideLoader();
 }
 
@@ -33,12 +35,24 @@ async function renderPokemon(pokemonList) {
 
   for (let i = 0; i < pokemonList.length; i++) {
     const {name, url} = pokemonList[i];
+    let detail;
+    let imgSrc;
+
+    if (imageCache[name]) {
+      imgSrc = imageCache[name].img;
+      detail = imageCache[name].detail;
+    } else {
     const response = await fetch(url);
-    const detail = await response.json();
+    detail = await response.json();
+    imgSrc = detail.sprites.front_default;
+    imageCache[name] = {img: imgSrc,detail};
+    }
+
     const primaryType = detail.types[0]?.type.name;
     const secondaryType = detail.types[1]?.type.name;
-    pokemonContainer.innerHTML += renderPokemonTemplate({i, name, primaryType, secondaryType, detail});
+    pokemonContainer.innerHTML += renderPokemonTemplate({i, name, primaryType, secondaryType, detail, imgSrc});
   }
+   console.log(imageCache);
 }
 
 async function showPokemonInOverlay(index) {

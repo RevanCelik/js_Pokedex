@@ -1,4 +1,4 @@
-function renderPokemonTemplate({i, name, primaryType, secondaryType, detail, imgSrc}) {
+function renderPokemonTemplate({i, name, primaryType, secondaryType, detail}) {
     return `
             <div onclick="openOverlayByName('${name}')" class="${primaryType} hover-effect border-style-pokemon">
                 <div>
@@ -9,7 +9,7 @@ function renderPokemonTemplate({i, name, primaryType, secondaryType, detail, img
                 ${secondaryType ? `<div class="type-style">${capitalizeFirstLetter(secondaryType)}</div>` : ""}
 
                 <div class="image-center">
-                <img src="${imgSrc}">
+                <img src="${detail.sprites.front_default}">
                 </div>
             </div>    
                 `;
